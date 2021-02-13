@@ -1,8 +1,8 @@
 const App = () => {
   return React.createElement(
-    "div",
+    "div", // type of element
     { id: "something-important", class:"some-class" }, // attribute list for element
-    React.createElement("h1", {}, "Adopt me!")
+    React.createElement("h1", {}, "Adopt me!") // children element/s 
   );
 };
 
