@@ -4,6 +4,8 @@ import { ANIMALS } from "@frontendmasters/pet";
 const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA");
   const [animal, setAnimal] = useState("dog");
+  const [breed, setBreed] = useState("");
+  const [breeds, setBreeds] = useState([]);
 
   return (
     <div className="search-params">
@@ -29,11 +31,25 @@ const SearchParams = () => {
           >
             <option>All</option>
             {ANIMALS.map((animal) => (
-              // if keys are not present React will rerender everything, which is not efficient
-              // but with keys we can tell react that only order needs to be changed and not a complete rerender
-              // if keys are not unique sometimes it won't render
               <option key={animal} value={animal}>
                 {animal}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="breed">
+          Breed
+          <select
+            id="breed"
+            value={breed}
+            onChange={(event) => setBreed(event.target.value)}
+            onBlur={(event) => setBreed(event.target.value)}
+            disabled={breeds.length === 0}
+          >
+            <option>All</option>
+            {breeds.map((breedString) => (
+              <option key={breedString} value={breedString}>
+                {breedString}
               </option>
             ))}
           </select>
