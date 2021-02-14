@@ -29,7 +29,12 @@ const SearchParams = () => {
           >
             <option>All</option>
             {ANIMALS.map((animal) => (
-              <option value={animal}>{animal}</option>
+              // if keys are not present React will rerender everything, which is not efficient
+              // but with keys we can tell react that only order needs to be changed and not a complete rerender
+              // if keys are not unique sometimes it won't render
+              <option key={animal} value={animal}>
+                {animal}
+              </option>
             ))}
           </select>
         </label>
