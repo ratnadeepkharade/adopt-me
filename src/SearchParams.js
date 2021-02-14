@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 const SearchParams = () => {
-  // hooks never go inside if statement or for loop
-  // hooks are executed in order and if they are based on condition then it might happen that next hook in order gets assigned to 1st hook
   const [location, setLocation] = useState("Seattle, WA");
 
   return (
